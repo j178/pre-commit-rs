@@ -524,6 +524,7 @@ impl Hook {
     /// Get the environment directory that the hook will be installed to.
     pub fn environment_dir(&self) -> Option<PathBuf> {
         let env_dir = self.language.environment_dir()?;
+        // TODO: language_version might not be a valid directory name.
         Some(
             self.path()
                 .join(format!("{}-{}", env_dir, &self.language_version)),
